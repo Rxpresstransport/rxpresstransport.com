@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Rxpress Transportation</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap');
+
+:root {
+  --red: #C0392B;
+  --red-light: #E74C3C;
+  --purple: #5B2D8E;
+  --purple-dark: #3D1A6B;
+  --purple-light: #9B6DD1;
+  --bg: #0D0D12;
+  --bg2: #101018;
+  --surface: #16161F;
+  --surface2: #1E1E2E;
+  --text: #EEEcF7;
+  --text-muted: #8880A8;
+  --border: rgba(120, 90, 180, 0.14);
+  --gold: #C9A84C;
+  --shadow-lg: 0 24px 64px rgba(0,0,0,0.55);
+  --grad: linear-gradient(135deg, #1E0B35 0%, #0F0518 35%, #1A0608 70%, #0D0D12 100%);
+  --grad-accent: linear-gradient(90deg, var(--purple) 0%, var(--red) 100%);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+
+.container { width: min(1140px, 92%); margin: 0 auto; }
+
+/* HEADER */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(13,13,18,0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 10px 0; gap: 20px;
+}
+.brand {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 800; font-size: 20px; color: #fff;
+}
+.brand-logo { height: 36px; width: auto; object-fit: contain; border-radius: 4px; filter: drop-shadow(0 0 10px rgba(91,45,142,0.55)) drop-shadow(0 0 22px rgba(192,57,43,0.25)); }
+.brand-rx {
+  background: var(--grad-accent);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.nav { display: flex; align-items: center; gap: 2px; flex-wrap: wrap; justify-content: flex-end; }
+.nav-link {
+  color: var(--text-muted); padding: 8px 13px; border-radius: 8px;
+  font-size: 14px; font-weight: 500; transition: color .2s, background .2s;
+}
+.nav-link:hover { color: #fff; background: rgba(255,255,255,0.06); }
+.nav-link.active { color: #fff; }
+
+/* HERO */
+.hero {
+  position: relative; overflow: hidden;
+  padding: 100px 0 80px;
+  background: var(--grad);
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 900px 600px at 5% 50%, rgba(91,45,142,0.38), transparent 65%),
+    radial-gradient(ellipse 600px 500px at 95% 15%, rgba(192,57,43,0.28), transparent 60%);
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; gap: 20px; max-width: 820px;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--gold);
+}
+.hero-eyebrow::before {
+  content: ''; display: block; width: 28px; height: 2px;
+  background: var(--gold); border-radius: 2px;
+}
+.hero h1 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 5vw, 54px);
+  line-height: 1.1; letter-spacing: -0.5px; color: #fff;
+}
+.hero h1 em {
+  font-style: normal;
+  background: var(--grad-accent);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero p { margin: 0; font-size: 17px; color: rgba(238,236,247,0.72); max-width: 620px; font-weight: 300; }
+.hero-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 14px; border-radius: 999px;
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.11);
+  font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.85);
+}
+.badge::before { content: '✓'; color: var(--gold); font-size: 10px; }
+.hero--page { padding: 72px 0 58px; }
+.hero--page h1 { font-size: clamp(26px, 4vw, 46px); }
+
+/* LOGO BAND */
+.logo-band {
+  background: var(--surface); border-bottom: 1px solid var(--border);
+  padding: 28px 0;
+}
+.logo-band-inner {
+  display: flex; align-items: center; gap: 28px; justify-content: center; flex-wrap: wrap;
+}
+.logo-band-img { height: 58px; object-fit: contain; opacity: 0.75; filter: drop-shadow(0 0 14px rgba(91,45,142,0.45)); }
+.logo-band-text { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--text-muted); }
+.logo-band-text strong { background: var(--grad-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.logo-band-tagline {
+  font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--text-muted); font-weight: 500;
+  border-left: 1px solid var(--border); padding-left: 24px;
+}
+
+/* SECTIONS */
+.section { padding: 80px 0; }
+.section-alt { background: var(--bg2); }
+.section-dark { background: var(--surface); position: relative; overflow: hidden; }
+.section-dark::before {
+  content: ''; position: absolute; top: -120px; left: -80px;
+  width: 450px; height: 450px;
+  background: radial-gradient(circle, rgba(91,45,142,0.1), transparent 70%);
+  pointer-events: none;
+}
+
+.section-head { margin-bottom: 48px; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--purple-light); margin-bottom: 10px;
+}
+.section-label::after { content: ''; display: block; width: 22px; height: 1px; background: var(--purple-light); }
+.section-head h2 {
+  margin: 0 0 14px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 3.5vw, 36px);
+  letter-spacing: -0.3px; color: #fff; line-height: 1.15;
+}
+.section-head p { margin: 0; color: var(--text-muted); font-size: 16px; max-width: 700px; font-weight: 300; line-height: 1.75; }
+
+/* CARDS */
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
+.cards-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 28px;
+  transition: border-color .25s, transform .25s, box-shadow .25s;
+  position: relative; overflow: hidden;
+}
+.section-alt .card { background: var(--bg); }
+.card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--grad-accent); opacity: 0; transition: opacity .25s;
+}
+.card:hover { border-color: rgba(91,45,142,0.45); transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.45); }
+.card:hover::before { opacity: 1; }
+.card-icon {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: rgba(91,45,142,0.16); border: 1px solid rgba(91,45,142,0.22);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 18px;
+}
+.card h3 { margin: 0 0 10px; font-size: 17px; font-weight: 700; color: #fff; letter-spacing: -0.1px; }
+.card p { margin: 0; color: var(--text-muted); font-size: 14.5px; line-height: 1.7; font-weight: 300; }
+.card ul.list { margin: 14px 0 0; padding: 0; list-style: none; }
+.card ul.list li { padding: 5px 0 5px 18px; position: relative; color: var(--text-muted); font-size: 13.5px; font-weight: 300; }
+.card ul.list li::before { content: '→'; position: absolute; left: 0; color: var(--purple-light); font-size: 11px; top: 6px; }
+
+/* LISTS */
+.list { margin: 14px 0 0; padding: 0; list-style: none; color: var(--text-muted); }
+.list li { padding: 9px 0 9px 22px; position: relative; font-size: 15px; font-weight: 300; border-bottom: 1px solid rgba(120,90,180,0.07); }
+.list li:last-child { border-bottom: none; }
+.list li::before { content: '✦'; position: absolute; left: 0; color: var(--purple-light); font-size: 9px; top: 12px; }
+
+/* SPLIT */
+.split { display: grid; grid-template-columns: 1.35fr 0.65fr; gap: 52px; align-items: start; }
+.split-left h2 { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3vw, 30px); color: #fff; margin: 0 0 16px; }
+
+/* CALLOUT */
+.callout {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 20px; padding: 28px;
+  position: relative; overflow: hidden;
+}
+.callout::after { content: ''; position: absolute; bottom: -50px; right: -50px; width: 130px; height: 130px; background: radial-gradient(circle, rgba(91,45,142,0.18), transparent 70%); }
+.callout h3 { margin: 0 0 10px; font-family: 'Playfair Display', serif; color: #fff; font-size: 19px; }
+.callout p { margin: 0 0 8px; color: var(--text-muted); font-size: 14px; font-weight: 300; line-height: 1.7; }
+.callout p strong { color: rgba(238,236,247,0.7); }
+.callout .btn { margin-top: 14px; }
+
+/* BUTTONS */
+.btn {
+  display: inline-block; padding: 12px 22px; border-radius: 10px;
+  font-weight: 600; font-size: 14px; border: 1px solid transparent;
+  transition: transform .18s, box-shadow .18s, opacity .18s;
+  letter-spacing: 0.2px; cursor: pointer;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,0.4); }
+.btn-primary { background: var(--grad-accent); color: #fff; }
+.btn-secondary { background: rgba(255,255,255,0.06); color: var(--text); border-color: var(--border); }
+.btn-secondary:hover { background: rgba(255,255,255,0.1); }
+.center-actions { margin-top: 30px; text-align: center; }
+
+/* CTA BAND */
+.cta-band {
+  background: linear-gradient(135deg, #1C0840 0%, #0F0320 40%, #2E0808 100%);
+  padding: 56px 0; position: relative; overflow: hidden;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.cta-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 800px 320px at 50% 50%, rgba(91,45,142,0.28), transparent 65%); }
+.cta-inner { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.cta-inner h2 { margin: 0 0 6px; font-family: 'Playfair Display', serif; font-size: 28px; color: #fff; letter-spacing: -0.2px; }
+.cta-inner p { margin: 0; color: rgba(238,236,247,0.62); font-size: 15px; font-weight: 300; }
+.cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* MISSION BLOCK */
+.mission-block {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-left: 3px solid var(--purple); border-radius: 0 16px 16px 0;
+  padding: 26px 30px; margin: 40px 0;
+}
+.mission-block p { margin: 0; font-size: 17px; line-height: 1.85; color: rgba(238,236,247,0.78); font-weight: 300; }
+
+/* WHY GRID */
+.why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 32px; }
+.why-item { display: flex; align-items: flex-start; gap: 14px; padding: 18px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+.why-icon { flex-shrink: 0; width: 36px; height: 36px; border-radius: 8px; background: rgba(91,45,142,0.18); display: flex; align-items: center; justify-content: center; font-size: 16px; }
+.why-text strong { display: block; color: #fff; font-size: 14px; margin-bottom: 4px; }
+.why-text span { font-size: 13px; color: var(--text-muted); font-weight: 300; }
+
+/* FOOTER */
+.site-footer { background: #080810; color: var(--text-muted); padding: 48px 0 24px; border-top: 1px solid var(--border); }
+.footer-top { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 48px; padding-bottom: 36px; border-bottom: 1px solid var(--border); margin-bottom: 22px; }
+.footer-logo { height: 36px; object-fit: contain; margin-bottom: 12px; opacity: 0.75; }
+.footer-brand-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+.footer-brand-name span { background: var(--grad-accent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.footer-brand-desc { font-size: 13px; line-height: 1.7; font-weight: 300; }
+.footer-col h4 { color: rgba(238,236,247,0.55); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 16px; }
+.footer-col a { display: block; font-size: 13px; color: var(--text-muted); margin-bottom: 9px; transition: color .15s; }
+.footer-col a:hover { color: #fff; }
+.footer-contact p { font-size: 13px; margin: 0 0 8px; }
+.footer-contact a { color: var(--purple-light); }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; font-size: 12px; flex-wrap: wrap; gap: 10px; }
+.footer-links { display: flex; gap: 18px; }
+.footer-links a:hover { color: #fff; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .cards, .cards-2 { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; gap: 28px; }
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .cta-inner { flex-direction: column; }
+  .logo-band-inner { flex-direction: column; text-align: center; }
+  .logo-band-tagline { border-left: none; padding-left: 0; }
+  .why-grid { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner" style="justify-content:center; gap:4px;">
+    <a href="index.html" class="nav-link" style="color:#fff; font-weight:600;">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="contract.html" class="nav-link">Contracts</a>
+  </div>
+</header>
+<main>
+
+  <section class="hero hero--page">
+    <div class="container hero-inner">
+      <div class="hero-eyebrow">What We Offer</div>
+      <h1>Our <em>Services</em></h1>
+      <p>Non-emergency medical transportation designed for safety, comfort, and on-time arrivals with a focus on every passenger's dignity and well-being.</p>
+      <div class="hero-badges">
+        <span class="badge">MTM Compliant</span>
+        <span class="badge">Door-to-Door Assistance</span>
+        <span class="badge">Recurring Trips Accepted</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-label">Travel with Rxpress</div>
+        <h2>When You Spot the Rxpress Logo,<br>You Can Trust the Ride</h2>
+        <p>Safety is our top priority. Every trip is taken in a clean, certified vehicle with a fully vetted driver who is trained to support your comfort and safety from pickup to drop-off.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon"><img src="icon-here.png" alt="Vehicles" style="width:24px;height:24px;object-fit:contain;"></div>
+          <h3>Clean &amp; Credentialed Vehicles</h3>
+          <p>Travel in comfort with every trip taken in a clean, professionally certified vehicle. Our fleet receives daily checks, professional inspections, and full sanitization between every ride.</p>
+          <ul class="list">
+            <li>Routinely inspected and maintained</li>
+            <li>Fully insured and properly registered</li>
+            <li>Sanitized between every ride</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon"><img src="icon-here.png" alt="Vehicles" style="width:24px;height:24px;object-fit:contain;"></div>
+          <h3>Fully Credentialed Drivers</h3>
+          <p>Every Rxpress driver is fully vetted and credentialed prior to any ride. Only licensed, background-checked, and trained professionals provide service.</p>
+          <ul class="list">
+            <li>Comprehensive background checks</li>
+            <li>Licensed and certified before service</li>
+            <li>Trained in passenger assistance</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-icon"><img src="icon-here.png" alt="Vehicles" style="width:24px;height:24px;object-fit:contain;"></div>
+          <h3>Clear Communication</h3>
+          <p>We coordinate clearly with riders and facilities, sending timely confirmations and real-time updates. We keep wait times minimal and respond quickly to every question.</p>
+          <ul class="list">
+            <li>Timely ride confirmations</li>
+            <li>Real-time updates on delays or changes</li>
+            <li>Fast response to questions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-label">Service Types</div>
+        <h2>Transportation for Every Medical Need</h2>
+        <p>We specialize in non-emergency medical transportation across a wide range of appointment types and mobility needs throughout Wisconsin.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon"><img src="icon-here.png" alt="Vehicles" style="width:24px;height:24px;object-fit:contain;"></div>
+          <h3>Medical Appointment Transportation</h3>
+          <p>Reliable rides to primary care visits, specialist appointments, labs, imaging, and more. We make sure no appointment is missed due to a lack of transportation.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><img src="icon-here.png" alt="Vehicles" style="width:24px;height:24px;object-fit:contain;"></div>
+          <h3>Hospital Discharges &amp; Follow-Up Visits</h3>
+          <p>On-time pickup and drop-off for scheduled care, hospital discharges, and post-procedure follow-up visits handled with patience and care.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><img src="icon-here.png" alt="Vehicles" style="width:24px;height:24px;object-fit:contain;"></div>
+          <h3>Routine &amp; Recurring Trips</h3>
+          <p>Consistent scheduling for dialysis, physical therapy, counseling, and other recurring medical needs. We build dependable routines with our clients.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><img src="icon-here.png" alt="Vehicles" style="width:24px;height:24px;object-fit:contain;"></div>
+          <h3>Elderly &amp; Disabled Individuals</h3>
+          <p>Specialized transportation and door-to-door assistance for elderly and disabled passengers, with the patience and attentiveness they deserve.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><img src="icon-here.png" alt="Vehicles" style="width:24px;height:24px;object-fit:contain;"></div>
+          <h3>Door-to-Door Assistance</h3>
+          <p>When passengers need extra support, our drivers provide door-to-door assistance from the front door of the home to the front door of the facility.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><img src="icon-here.png" alt="Vehicles" style="width:24px;height:24px;object-fit:contain;"></div>
+          <h3>Partner &amp; Contract Rides</h3>
+          <p>Contracted transportation services for healthcare networks, insurance providers, and MTM partners with full compliance and reliable operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-label">Service Standards</div>
+        <h2>What Makes Rxpress Dependable</h2>
+        <p>Reliability means more than just showing up. We deliver consistent, worry-free rides through proactive communication, thorough driver screening, meticulous vehicle maintenance, and strict safety policies giving you peace of mind from booking to drop-off.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon"><img src="icon-here.png" alt="Vehicles" style="width:24px;height:24px;object-fit:contain;"></div>
+          <h3>Safety &amp; Vehicle Care</h3>
+          <p>Clean, well-maintained, and regularly inspected vehicles ensure safe, comfortable travel. Our fleet receives daily driver checks and professional inspections that meet or exceed industry standards.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><img src="icon-here.png" alt="Drivers" style="width:24px;height:24px;object-fit:contain;"></div>
+          <h3>Driver Screening</h3>
+          <p>All Rxpress drivers pass comprehensive background checks, driving record reviews, required training, and professionalism standards. Only fully vetted, certified drivers provide service.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><img src="icon-here.png" alt="Communication" style="width:24px;height:24px;object-fit:contain;"></div>
+          <h3>Communication &amp; Dispatch</h3>
+          <p>We coordinate clearly with riders and facilities, sending timely confirmations, real-time updates on changes or delays, and quick responses keeping everyone informed every step of the way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="split-left">
+        <div class="section-label">Our Standards</div>
+        <h2>Trusted &amp; Professional,<br>Every Trip</h2>
+        <ul class="list">
+          <li>Licensed and insured operations</li>
+          <li>Background-checked, credentialed drivers</li>
+          <li>Clean, maintained, inspected vehicles</li>
+          <li>Respectful, compassionate service</li>
+          <li>HIPAA-compliant practices</li>
+          <li>Full MTM policy adherence</li>
+        </ul>
+      </div>
+      <div class="split-right">
+        <div class="callout">
+          <h3>Partner With Rxpress</h3>
+          <p>If you're a facility, coordinator, or insurance provider, contact us to discuss coverage, capacity, and communication preferences.</p>
+          <p><strong>Phone:</strong> 833-379-7737</p>
+          <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="82f0faf2f0e7f1f1f6f0e3ecf1f2edf0f6e3f6ebedecc2e5efe3ebeeace1edef">[email&#160;protected]</a></p>
+          <a class="btn btn-primary" href="contract.html">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>Need transportation support?</h2>
+        <p>Reach out today we're ready to provide safe, reliable transportation across Wisconsin.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="about.html">About Us</a>
+        <a class="btn btn-secondary" href="contract.html">Partner With Us</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <img class="footer-logo" src="logo.png" alt="Rxpress Transportation">
+        <div class="footer-brand-name"><span>Rx</span>press Transportation</div>
+        <div class="footer-brand-desc">A Wisconsin-based non-emergency medical transportation provider committed to safe, reliable, and compassionate service for every passenger.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="contract.html">Contracts</a>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Contact</h4>
+        <p><strong>Phone:</strong> <a href="tel:8333797737">833-379-7737</a></p>
+        <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#bbc9c3cbc9dec8c8cfc9dad5c8cbd4c9cfdacfd2d4d5fbdcd6dad2d795d8d4d6"><span class="__cf_email__" data-cfemail="72000a02001701010600131c01021d000613061b1d1c32151f131b1e5c111d1f">[email&#160;protected]</span></a></p>
+        <p><strong>Service Area:</strong> State of Wisconsin</p>
+      </div>
+    </div>
